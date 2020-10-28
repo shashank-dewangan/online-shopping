@@ -2,9 +2,12 @@
   "name": "online-shopping",
   "version": "1.0.0",
   "description": "e-commerce online shopiing site",
-  "main": "index.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "client": "npm run start --prefix frontend"
+    "server": "nodemon backend/server.js",
+    "client": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/shashank-dewangan/online-shopping/issues"
   },
-  "homepage": "https://github.com/shashank-dewangan/online-shopping#readme"
+  "homepage": "https://github.com/shashank-dewangan/online-shopping#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  }
 }
