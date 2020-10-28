@@ -1,7 +1,16 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
-  return <footer>I m footer</footer>;
+  return (
+    <footer>
+      <Container>
+        <Row>
+          <Col className="text-center py-5">Copyright &copy; Orion Corp.</Col>
+        </Row>
+      </Container>
+    </footer>
+  );
 };
 
 export default Footer;
