@@ -1,0 +1,19 @@
+{
+  "name": "online-shopping",
+  "version": "1.0.0",
+  "description": "e-commerce online shopiing site",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run start --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashank-dewangan/online-shopping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashank-dewangan/online-shopping/issues"
+  },
+  "homepage": "https://github.com/shashank-dewangan/online-shopping#readme"
+}
