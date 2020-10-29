@@ -13,7 +13,7 @@ const Product = ({ product }) => {
         <Link to={`/products/${product._id}`}>
           <Card.Title as="div">{product.name}</Card.Title>
         </Link>
-        <Card.Text>
+        <Card.Text as="div" className="py-2">
           <Rating value={product.rating} text={product.numReviews} />
         </Card.Text>
         <Card.Text as="h5">${product.price}</Card.Text>
