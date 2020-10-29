@@ -1,6 +1,20 @@
 main {
   min-height: 80vh;
 }
+header {
+  top: 0;
+  position: sticky;
+  z-index: 1;
+}
 .header-icons {
   padding: 0 5px;
+}
+.rating {
+  padding: 0.5rem 0;
+}
+i {
+  padding: 0 0.1rem;
+}
+footer {
+  background: lightgray;
 }

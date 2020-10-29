@@ -1,14 +1,19 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Product from '../components/Product';
+import products from '../products_old';
 
 const HomeScreen = () => {
   return (
     <main>
-      <Container>
+      <Container className="my-5">
+        <h2>Latest Products</h2>
         <Row>
-          <Col className="my-3">
-            <h2>Latest Products</h2>
-          </Col>
+          {products.map((product) => (
+            <Col sm={12} md={6} lg={4} xl={3}>
+              <Product product={product} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </main>
