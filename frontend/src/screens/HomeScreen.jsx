@@ -17,7 +17,7 @@ const HomeScreen = () => {
     (state) => state.productList
   );
   return (
-    <>
+    <div className="my-3">
       <h2>Latest Products</h2>
       {loading ? (
         <Loader />
@@ -32,7 +32,7 @@ const HomeScreen = () => {
           ))}
         </Row>
       )}
-    </>
+    </div>
   );
 };
 
