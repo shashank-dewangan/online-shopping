@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 node_modules
+seeder.js
+products_old.js
+products.js
+users.js
 
 # testing
 /coverage
