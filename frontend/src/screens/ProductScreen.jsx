@@ -22,12 +22,11 @@ const ProductScreen = ({ match, history }) => {
   const { loading, product, error } = useSelector((state) => state.product);
 
   useEffect(() => {
-    dispatch(listProductDetails(match.params.id));
+    if (match.params.id) dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
 
-  const addToCartHandler = () => {
-    console.log('product', product, qty);
-    history.push(`/cart/${product._id}?qty?${qty}`);
+  const addToCartHandler = (id) => {
+    history.push(`/cart/${product._id}?qty=${qty}`);
   };
 
   return (
@@ -101,7 +100,7 @@ const ProductScreen = ({ match, history }) => {
                 <ListGroup.Item>
                   <Button
                     className="btn-block"
-                    onClick={addToCartHandler}
+                    onClick={() => addToCartHandler(product._id)}
                     disabled={product.countInStock === 0}
                   >
                     Add To Cart
