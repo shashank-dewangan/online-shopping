@@ -1,13 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  Card,
-  Row,
-  Col,
-  ListGroup,
-  Button,
-  Image,
-  Form,
-} from 'react-bootstrap';
+import { Row, Col, ListGroup, Button, Image, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartActions';
