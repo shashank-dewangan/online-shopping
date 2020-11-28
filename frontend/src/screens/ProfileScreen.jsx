@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateProfile } from '../actions/userActions';
+import { getUserProfile, updateProfile } from '../actions/userActions';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 
@@ -13,20 +13,24 @@ const ProfileScreen = ({ history }) => {
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
 
+  const { loading, error, user } = useSelector((state) => state.userDetails);
+
   const { userInfo } = useSelector((state) => state.userLogin);
 
-  const { success, error, loading } = useSelector(
-    (state) => state.userUpdateProfile
-  );
+  const { success } = useSelector((state) => state.userUpdateProfile);
 
   useEffect(() => {
     if (!userInfo) {
       history.push('/login');
     } else {
-      setName(userInfo.name);
-      setEmail(userInfo.email);
+      if (!user || !user.name) {
+        dispatch(getUserProfile('profile'));
+      } else {
+        setName(user.name);
+        setEmail(user.email);
+      }
     }
-  }, [userInfo, history]);
+  }, [userInfo, history, userInfo, user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +47,7 @@ const ProfileScreen = ({ history }) => {
         {loading && <Loader />}
         {error && <Message variant="danger">{error}</Message>}
         {message && <Message variant="info">{message}</Message>}
-        {success && <Message variant="info">Profile Updated</Message>}
+        {success && <Message variant="success">Profile Updated</Message>}
         <Form onSubmit={handleSubmit}>
           <FormGroup controlId="name">
             <Form.Label>Name</Form.Label>
